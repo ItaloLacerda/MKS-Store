@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/system';
 import reportWebVitals from './reportWebVitals';
 
-import App from './App';
+import { App } from './App';
 import { LightTheme } from './shared/themes';
 import store from './shared/redux/store';
 

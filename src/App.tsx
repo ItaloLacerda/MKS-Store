@@ -1,9 +1,8 @@
 import { AppRoutes } from './routes';
+import { Header } from './shared/components';
 
-function App() {
+export const App = () => {
 
   return <AppRoutes/>;
-  
-}
 
-export default App;
+};

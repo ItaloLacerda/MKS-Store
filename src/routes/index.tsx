@@ -1,11 +1,11 @@
-import { Button } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { Home } from '../pages';
 
 export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Button variant="contained" color="primary">Test</Button>} />
+      <Route path="/" element={<Home/>} />
       <Route path="*" element={<Navigate to={'/'} />} />
     </Routes>
   );
