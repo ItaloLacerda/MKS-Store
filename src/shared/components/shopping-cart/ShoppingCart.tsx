@@ -23,7 +23,7 @@ export const ShoppingCart = () => {
         </Box>
         <Box width={theme.spacing(60.80)} height="10%" sx={boxTotalstyle}>
           <Typography component="p" variant='h3' sx={drawerTotalStyle}>Total:</Typography>
-          <Typography component="p" variant='h3' sx={drawerValueStyle}>R$0</Typography>
+          <Typography component="p" variant='h3' sx={drawerValueStyle}>R$798</Typography>
         </Box>
         <Button variant="contained" sx={checkoutButtonStyle}>Finalizar Compra</Button>
       </Box>

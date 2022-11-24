@@ -4,7 +4,7 @@ export const DrawerHeader = styled('div')(() => ({
   display: 'flex',
   padding: '0' ,
   justifyContent: 'space-between',
-  height: '101px'
+  height: '11.59%'
 }));
 
 export const styleBox = {
@@ -32,7 +32,7 @@ export const drawerTitleStyle = {
 export const checkoutButtonStyle = {
   backgroundColor: '#000000',
   width: '100%',
-  height: '97px',
+  height: '11.13%',
   fontWeight: '700',
   fontSize: '28px',
   lineHeight: '15px',
@@ -43,12 +43,12 @@ export const boxTotalstyle = {
   display: 'flex',
   padding: '0' ,
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-start',
 };
 
 export const drawerValueStyle = {
   color: '#FFFFFF',
-  marginRight: '63px',
+  marginLeft: '204px',
 };
 
 export const drawerTotalStyle = {
