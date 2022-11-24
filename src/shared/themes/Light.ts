@@ -16,5 +16,15 @@ export const LightTheme = createTheme({
       default: '#E5E5E5',
       paper: '#FFFFFF',
     },
+  },
+  typography: {
+    fontFamily: 'Montserrat',
+    h3: {
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: '28px',
+      lineHeight: '15px'
+    }
   }
+
 });
