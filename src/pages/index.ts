@@ -1,1 +1,2 @@
-export * from './home/Home';
+export { Home } from './home/Home';
+export { MainStore } from './main-store/MainStore';
