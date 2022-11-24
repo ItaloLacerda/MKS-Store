@@ -9,14 +9,12 @@ export const LightTheme = createTheme({
       contrastText:'#FFFFFF',
     },
     secondary: {
-      main: '#373737',
-      dark: '#303737',
-      light: '#393737',
-      contrastText: '#FFFFFF',
+      main: '#FFFFFF',
+      contrastText: '#000000',
     },
     background: {
       default: '#E5E5E5',
       paper: '#FFFFFF',
-    }
+    },
   }
 });

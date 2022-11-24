@@ -1,20 +1,27 @@
-import { AppBar, Container } from '@mui/material';
-import { MksIcon, SystemsIcon } from '../../svg';
+import { AppBar, Button, Container, Toolbar, Typography} from '@mui/material';
+import { MksIcon, ShoppingCart, SystemsIcon } from '../../svg';
+import { buttonStyle, containerStyle } from './headerStyle';
 
 export const Header = () => {
 
   return (
     <>
       <AppBar>
-        <Container maxWidth="xl" sx={{
-          height: '73px',
-          marginLeft: '32px',
-          marginTop: '28px',
-          width: '16%'
-        }}>
-          <MksIcon />
-          <SystemsIcon />
-        </Container>
+        <Toolbar>
+          <Container maxWidth="xl" sx={containerStyle}>
+            <MksIcon />
+            <SystemsIcon />
+          </Container>
+          <Button 
+            color="secondary"
+            sx={buttonStyle}
+            variant="contained"
+            disableElevation 
+          >
+            <ShoppingCart/>
+            <Typography variant="h6">0</Typography>
+          </Button>
+        </Toolbar>
       </AppBar>
     </>
   );
