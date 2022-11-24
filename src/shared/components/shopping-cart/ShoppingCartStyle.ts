@@ -1,5 +1,12 @@
 import { styled } from '@mui/material';
 
+export const DrawerHeader = styled('div')(() => ({
+  display: 'flex',
+  padding: '0' ,
+  justifyContent: 'space-between',
+  height: '101px'
+}));
+
 export const styleBox = {
   bgcolor: 'primary.main',
   height: '100%'
@@ -13,9 +20,6 @@ export const styleCloseCart = {
 };
 
 export const drawerTitleStyle = {
-  fontFamily: 'Montserrat',
-  fontStyle: 'normal',
-  fontWeight: '700',
   fontSize: '27px',
   lineHeight: '33px',
   color: '#FFFFFF',
@@ -29,17 +33,25 @@ export const checkoutButtonStyle = {
   backgroundColor: '#000000',
   width: '100%',
   height: '97px',
-  fontFamily: 'Montserrat',
-  fontStyle: 'normal',
   fontWeight: '700',
   fontSize: '28px',
   lineHeight: '15px',
   borderRadius: '0',
 };
 
-export const DrawerHeader = styled('div')(() => ({
+export const boxTotalstyle = {
   display: 'flex',
   padding: '0' ,
+  alignItems: 'center',
   justifyContent: 'space-between',
-  height: '101px'
-}));
+};
+
+export const drawerValueStyle = {
+  color: '#FFFFFF',
+  marginRight: '63px',
+};
+
+export const drawerTotalStyle = {
+  color: '#FFFFFF',
+  marginLeft: '47px',
+};
