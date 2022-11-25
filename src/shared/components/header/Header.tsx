@@ -1,8 +1,12 @@
 import { AppBar, Button, Container, Toolbar, Typography} from '@mui/material';
+import { useAppDispatch } from '../../hooks';
+import { openDrawer } from '../../redux/slice';
 import { MksIcon, ShoppingCart, SystemsIcon } from '../../svg';
 import { buttonStyle, containerStyle } from './headerStyle';
 
 export const Header = () => {
+
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -13,6 +17,7 @@ export const Header = () => {
             <SystemsIcon />
           </Container>
           <Button 
+            onClick={() => dispatch(openDrawer())}
             color="secondary"
             sx={buttonStyle}
             variant="contained"
