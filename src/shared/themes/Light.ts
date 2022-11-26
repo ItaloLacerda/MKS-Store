@@ -24,7 +24,26 @@ export const LightTheme = createTheme({
       fontWeight: '700',
       fontSize: '28px',
       lineHeight: '15px'
+    },
+    h5: {
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: '16px',
+      lineHeight: '19px'
+    },
+    h6: {
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: '15px',
+      lineHeight: '15px'
+    },
+    body2: {
+      fontStyle: 'normal',
+      fontWeight: '300',
+      fontSize: '10px',
+      lineHeight: '12px'
     }
+
   }
 
 });
