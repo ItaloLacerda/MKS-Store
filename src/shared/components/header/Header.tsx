@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <>
-      <AppBar>
+      <AppBar sx={{height: '9.864%'}}>
         <Toolbar>
           <Container maxWidth="xl" sx={containerStyle}>
             <MksIcon />
