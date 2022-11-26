@@ -1,12 +1,14 @@
 import { AppBar, Button, Container, Toolbar, Typography} from '@mui/material';
-import { useAppDispatch } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { openDrawer } from '../../redux/slice';
+import { selectShoppingCart } from '../../redux/slice/shoppingCartSlice';
 import { MksIcon, ShoppingCart, SystemsIcon } from '../../svg';
 import { buttonStyle, containerStyle } from './headerStyle';
 
 export const Header = () => {
 
   const dispatch = useAppDispatch();
+  const count = useAppSelector(selectShoppingCart);
 
   return (
     <>
@@ -24,7 +26,7 @@ export const Header = () => {
             disableElevation 
           >
             <ShoppingCart/>
-            <Typography variant="h6">0</Typography>
+            <Typography variant="h6">{count.allTheProducts.length}</Typography>
           </Button>
         </Toolbar>
       </AppBar>

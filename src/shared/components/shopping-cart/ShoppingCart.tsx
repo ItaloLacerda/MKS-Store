@@ -1,8 +1,9 @@
 import { Button, Drawer, Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
+import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { closeDrawer, selectCount } from '../../redux/slice/shoppingCartSlice';
+import { closeDrawer, saveProductInCart, selectShoppingCart } from '../../redux/slice/shoppingCartSlice';
 import { CloseCart } from '../../svg/close-cart/CloseCart';
 import { boxTotalstyle, checkoutButtonStyle, DrawerHeader, drawerTitleStyle, 
   drawerTotalStyle, drawerValueStyle, styleBox, styleCloseCart } from './ShoppingCartStyle';
@@ -10,9 +11,17 @@ import { boxTotalstyle, checkoutButtonStyle, DrawerHeader, drawerTitleStyle,
 export const ShoppingCart = () => {
 
   const dispatch = useAppDispatch();
-  const cart = useAppSelector(selectCount);
+  const cart = useAppSelector(selectShoppingCart);
   const theme = useTheme();
 
+  useEffect(() => {
+    const productStorage = localStorage.getItem('ShoppingCart');
+    if (productStorage) JSON.parse(productStorage)
+      .forEach((product: object) => {
+        dispatch(saveProductInCart(product));
+      });
+  }, []);
+  
   return (
     <Drawer open={cart.open} anchor="right" variant="persistent">
       <Box width={theme.spacing(60.80)} sx={styleBox}>

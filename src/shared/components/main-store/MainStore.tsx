@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
-import { json } from 'stream/consumers';
+import { useAppDispatch } from '../../hooks';
+import { saveProductInCart } from '../../redux/slice';
 
 import { fetchProducts } from '../../services/api';
 import { ShoppingCartBag } from '../../svg';
@@ -9,10 +10,11 @@ import { buttonCardStyle, cardActionsStyle, cardBoxstyle, cardContentStyle, card
 
 export const MainStore = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     const fetch = async () => {
       const result = await fetchProducts();
-      console.log(result);
       setProducts(result.products);
     };
     fetch();
@@ -24,13 +26,14 @@ export const MainStore = () => {
 
     if (ShoppingCart) {
       localStorage.setItem('ShoppingCart', JSON.stringify([...JSON.parse(ShoppingCart), product]));
+      dispatch(saveProductInCart(product));
     } else {
       localStorage.setItem('ShoppingCart', JSON.stringify([product]));
+      dispatch(saveProductInCart(product));
     }
   };
     
   return (
-
     <Box position='absolute' sx={mainBoxStyle}>
       <Box sx={cardBoxstyle}>
         {
