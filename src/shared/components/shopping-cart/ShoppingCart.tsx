@@ -1,12 +1,12 @@
-import { Button, Drawer, Typography, useTheme } from '@mui/material';
+import { Button, ButtonGroup, Card, CardMedia, Drawer, List, ListItem, ListSubheader, Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { closeDrawer, saveProductInCart, selectShoppingCart } from '../../redux/slice/shoppingCartSlice';
 import { CloseCart } from '../../svg/close-cart/CloseCart';
-import { boxTotalstyle, checkoutButtonStyle, DrawerHeader, drawerTitleStyle, 
-  drawerTotalStyle, drawerValueStyle, styleBox, styleCloseCart } from './ShoppingCartStyle';
+import { boxTotalstyle, cardMediaStyle, cardStyle, checkoutButtonStyle, countStyle, decrementButtonStyle, DrawerHeader, drawerTitleStyle, 
+  drawerTotalStyle, drawerValueStyle,  incrementeBoxStyle,  incrementeButtonStyle, nameProductBoxStyle, priceBoxStyle, styleBox, styleCloseCart } from './ShoppingCartStyle';
 
 export const ShoppingCart = () => {
 
@@ -31,8 +31,50 @@ export const ShoppingCart = () => {
             <CloseCart />
           </Button>
         </DrawerHeader>
-        <Box width={theme.spacing(60.80)} height="67.3%">
+        <Box  
+          width={theme.spacing(60.80)} 
+          height="67.3%">
+          <List 
+            disablePadding
+            subheader={<li />}
+          >
+            {
+              cart.cartProducts.map((product): any => (
+                <ListItem key={product.id} sx={ { padding: '0' }}>
 
+                  <Card  sx={cardStyle}>
+                    <CardMedia
+                      component="img"
+                      sx={cardMediaStyle}
+                      image={product.photo}
+                      alt={product.name}
+                    />
+                    <Box sx={nameProductBoxStyle}>
+                      <Typography 
+                        color="#2C2C2C" 
+                        variant="h6" 
+                        component="h4">
+                        {product.name}
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography sx={ {fontSize: '10px'}}>Qtd:</Typography>
+                      <Box sx={incrementeBoxStyle}>
+                        <Button sx={incrementeButtonStyle}>-</Button>
+                        <Box sx={countStyle}>
+                          <Typography sx={ {fontSize: '13px'}}>1</Typography>
+                        </Box>
+                        <Button sx={decrementButtonStyle}>+</Button>
+                      </Box>
+                    </Box>
+                    <Box sx={priceBoxStyle}>
+                      <Typography variant="h5">R$3999.00</Typography>
+                    </Box>
+                  </Card>
+                </ListItem>
+              ))
+            }         
+          </List>
         </Box>
         <Box width={theme.spacing(60.80)} height="10%" sx={boxTotalstyle}>
           <Typography component="p" variant='h3' sx={drawerTotalStyle}>Total:</Typography>

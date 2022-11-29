@@ -50,14 +50,14 @@ export const MainStore = () => {
                 <Typography 
                   color="#2C2C2C" 
                   sx={productNameStyle}
-                  variant="h5" 
+                  variant="h4" 
                   component="h5">{
                     product.name}
                 </Typography>
                 <Box sx={priceBoxStyle}>
                   <Typography 
                     color="#FFFFFF" 
-                    variant="h6" 
+                    variant="h5" 
                     component="h5">
                     {`R$${product.price}`}
                   </Typography>

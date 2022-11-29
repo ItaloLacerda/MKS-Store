@@ -55,3 +55,68 @@ export const drawerTotalStyle = {
   color: '#FFFFFF',
   marginLeft: '47px',
 };
+
+export const cardStyle = {
+  width: '379px',
+  height: '95px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-evenly',
+  borderRadius: '8px',
+  marginTop: '28px',
+  marginLeft: '47px',
+};
+
+export const cardMediaStyle = {
+  width: '80px',
+};
+
+export const nameProductBoxStyle = {
+  width: '113px',
+  height: '33px',
+};
+
+export const incrementeBoxStyle = {
+  width:'56px',
+  height:'19px',
+  display: 'flex',
+  border: '1px solid #BFBFBF',
+  borderRadius: '4px 4px 4px 4px',
+};
+
+export const incrementeButtonStyle = {
+  minWidth: '16.67px',
+  height: '11.5px',
+  padding: '0',
+  borderRight: '1px solid #BFBFBF',
+  borderRadius: '0',
+  margin: '3.5px 0 0 3.5px',
+  color: '#000000',
+};
+
+export const countStyle = {
+  minWidth: '16.67px',
+  fontSize: '10px',
+  height: '18px',
+  padding: '0',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: '#000000',
+};
+
+export const decrementButtonStyle = {
+  minWidth: '16.67px',
+  height: '11.5px',
+  padding: '0',
+  borderLeft: '1px solid #BFBFBF',
+  borderRadius: '0',
+  margin: '3.5px 3.5px 0 0',
+  color: '#000000',
+};
+
+export const priceBoxStyle = {
+  minWidth: '62px',
+  height: '17px',
+};
+

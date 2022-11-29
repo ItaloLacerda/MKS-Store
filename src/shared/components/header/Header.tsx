@@ -26,7 +26,7 @@ export const Header = () => {
             disableElevation 
           >
             <ShoppingCart/>
-            <Typography variant="h6">{count.allTheProducts.length}</Typography>
+            <Typography variant="h5">{count.allTheProducts.length}</Typography>
           </Button>
         </Toolbar>
       </AppBar>

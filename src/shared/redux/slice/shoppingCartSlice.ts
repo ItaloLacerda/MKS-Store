@@ -42,7 +42,7 @@ export const shoppingCartSlice = createSlice({
       } else {
         state.allTheProducts = [...state.allTheProducts, payload];
       }
-    } 
+    }
   },
 });
 

@@ -25,17 +25,23 @@ export const LightTheme = createTheme({
       fontSize: '28px',
       lineHeight: '15px'
     },
-    h5: {
+    h4: {
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: '16px',
       lineHeight: '19px'
     },
-    h6: {
+    h5: {
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: '15px',
       lineHeight: '15px'
+    },
+    h6: {
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: '13px',
+      lineHeight: '17px'
     },
     body2: {
       fontStyle: 'normal',
