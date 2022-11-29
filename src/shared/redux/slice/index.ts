@@ -1,1 +1,1 @@
-export { closeDrawer, openDrawer, saveProductInCart, shoppingCartSlice } from './shoppingCartSlice';
+export { closeDrawer, openDrawer, saveProductInCart, shoppingCartSlice, decrementProductInCart, removeProductInCart } from './shoppingCartSlice';

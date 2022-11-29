@@ -42,10 +42,16 @@ export const shoppingCartSlice = createSlice({
       } else {
         state.allTheProducts = [...state.allTheProducts, payload];
       }
-    }
+    },
+    decrementProductInCart: (state, { payload }) => {
+      state.allTheProducts = [...payload];
+    },
+    removeProductInCart: (state, { payload }) => {
+      state.cartProducts = [...payload];
+    },
   },
 });
 
 export const selectShoppingCart = (state: RootState) => state.shoppingCart;
 
-export const { closeDrawer, openDrawer, saveProductInCart } = shoppingCartSlice.actions;
+export const { closeDrawer, openDrawer, saveProductInCart, decrementProductInCart, removeProductInCart } = shoppingCartSlice.actions;

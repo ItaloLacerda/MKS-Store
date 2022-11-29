@@ -1,13 +1,23 @@
-import { Button, ButtonGroup, Card, CardMedia, Drawer, List, ListItem, ListSubheader, Typography, useTheme } from '@mui/material';
+import { Button, Card, CardMedia, Drawer, List, ListItem, Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { closeDrawer, saveProductInCart, selectShoppingCart } from '../../redux/slice/shoppingCartSlice';
+import { closeDrawer, decrementProductInCart, removeProductInCart, saveProductInCart, selectShoppingCart } from '../../redux/slice/shoppingCartSlice';
 import { CloseCart } from '../../svg/close-cart/CloseCart';
 import { boxTotalstyle, cardMediaStyle, cardStyle, checkoutButtonStyle, countStyle, decrementButtonStyle, DrawerHeader, drawerTitleStyle, 
   drawerTotalStyle, drawerValueStyle,  incrementeBoxStyle,  incrementeButtonStyle, nameProductBoxStyle, priceBoxStyle, styleBox, styleCloseCart } from './ShoppingCartStyle';
 
+interface productType {
+    brand: string,
+    createdAt: string,
+    description: string,
+    id: number,
+    name: string,
+    photo: string,
+    price: string,
+    updatedAt: string,
+  }
 export const ShoppingCart = () => {
 
   const dispatch = useAppDispatch();
@@ -21,6 +31,45 @@ export const ShoppingCart = () => {
         dispatch(saveProductInCart(product));
       });
   }, []);
+
+  const increaseProduct = (product: productType) => {
+
+    const ShoppingCart: any = localStorage.getItem('ShoppingCart');
+
+    localStorage.setItem('ShoppingCart', JSON.stringify([...JSON.parse(ShoppingCart), product]));
+    dispatch(saveProductInCart(product));
+   
+  };
+
+  const decrementProduct = (product: productType) => {
+
+    let count = 0;
+    let totalQuantitySelectedProduct = 0; 
+
+    const newShoppingCart = cart.allTheProducts.filter((productCurr) => {
+      if (productCurr.id === product.id && count < 1) {
+        count += 1;
+        return false;
+      }
+      return true;
+    });
+
+    cart.allTheProducts.forEach((productCurr) => {
+      if (productCurr.id === product.id ) {
+        totalQuantitySelectedProduct += 1;
+       
+      }
+    });
+
+    if (totalQuantitySelectedProduct <= 1 ) {
+      const removeProductCart = cart.allTheProducts.filter((productCurr) => productCurr.id !== product.id );
+      dispatch(removeProductInCart(removeProductCart));
+    }
+
+    localStorage.setItem('ShoppingCart', JSON.stringify(newShoppingCart));
+    dispatch(decrementProductInCart(newShoppingCart));
+   
+  };
   
   return (
     <Drawer open={cart.open} anchor="right" variant="persistent">
@@ -60,11 +109,11 @@ export const ShoppingCart = () => {
                     <Box>
                       <Typography sx={ {fontSize: '10px'}}>Qtd:</Typography>
                       <Box sx={incrementeBoxStyle}>
-                        <Button sx={incrementeButtonStyle}>-</Button>
+                        <Button sx={incrementeButtonStyle} onClick={() => decrementProduct(product)}>-</Button>
                         <Box sx={countStyle}>
                           <Typography sx={ {fontSize: '13px'}}>{cart.allTheProducts.filter((productCurr) => productCurr.id === product.id).length}</Typography>
                         </Box>
-                        <Button sx={decrementButtonStyle}>+</Button>
+                        <Button sx={decrementButtonStyle} onClick={() => increaseProduct(product)}>+</Button>
                       </Box>
                     </Box>
                     <Box sx={priceBoxStyle}>
