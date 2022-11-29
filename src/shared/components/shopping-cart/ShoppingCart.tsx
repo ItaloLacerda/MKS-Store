@@ -62,13 +62,17 @@ export const ShoppingCart = () => {
                       <Box sx={incrementeBoxStyle}>
                         <Button sx={incrementeButtonStyle}>-</Button>
                         <Box sx={countStyle}>
-                          <Typography sx={ {fontSize: '13px'}}>1</Typography>
+                          <Typography sx={ {fontSize: '13px'}}>{cart.allTheProducts.filter((productCurr) => productCurr.id === product.id).length}</Typography>
                         </Box>
                         <Button sx={decrementButtonStyle}>+</Button>
                       </Box>
                     </Box>
                     <Box sx={priceBoxStyle}>
-                      <Typography variant="h5">R$3999.00</Typography>
+                      <Typography variant="h5">{`R$${cart.allTheProducts
+                        .filter((productCurr) => productCurr.id === product.id)
+                        .map((productCurr) => Number(productCurr.price))
+                        .reduce((acc, cur) => acc + cur, 0)
+                        .toFixed(2)}`}</Typography>
                     </Box>
                   </Card>
                 </ListItem>
@@ -78,7 +82,12 @@ export const ShoppingCart = () => {
         </Box>
         <Box width={theme.spacing(60.80)} height="10%" sx={boxTotalstyle}>
           <Typography component="p" variant='h3' sx={drawerTotalStyle}>Total:</Typography>
-          <Typography component="p" variant='h3' sx={drawerValueStyle}>R$0</Typography>
+          <Typography component="p" variant='h3' sx={drawerValueStyle}>{`R$${
+            cart.allTheProducts
+              .map((productCurr) => Number(productCurr.price))
+              .reduce((acc, cur) => acc + cur, 0)
+              .toFixed(2)
+          }`}</Typography>
         </Box>
         <Button variant="contained" sx={checkoutButtonStyle}>Finalizar Compra</Button>
       </Box>
