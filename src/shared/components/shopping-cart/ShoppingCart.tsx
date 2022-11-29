@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, Drawer, List, ListItem, Typography, useTheme } from '@mui/material';
+import { Alert, Button, Card, CardMedia, Drawer, List, ListItem, Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import { useEffect } from 'react';
 
@@ -62,13 +62,24 @@ export const ShoppingCart = () => {
     });
 
     if (totalQuantitySelectedProduct <= 1 ) {
-      const removeProductCart = cart.allTheProducts.filter((productCurr) => productCurr.id !== product.id );
+      const removeProductCart = cart.cartProducts.filter((productCurr) => productCurr.id !== product.id );
       dispatch(removeProductInCart(removeProductCart));
     }
 
     localStorage.setItem('ShoppingCart', JSON.stringify(newShoppingCart));
     dispatch(decrementProductInCart(newShoppingCart));
    
+  };
+
+  const checkout = () => {
+    if (cart.cartProducts.length > 0) {
+      dispatch(removeProductInCart([]));
+      dispatch(decrementProductInCart([]));
+      localStorage.setItem('ShoppingCart', JSON.stringify([]));
+      alert('Compra Realizada Com Sucesso');
+    } else {
+      alert('Por Favor Inserir Produto No Carrinho');
+    }
   };
   
   return (
@@ -138,7 +149,7 @@ export const ShoppingCart = () => {
               .toFixed(2)
           }`}</Typography>
         </Box>
-        <Button variant="contained" sx={checkoutButtonStyle}>Finalizar Compra</Button>
+        <Button variant="contained" sx={checkoutButtonStyle} onClick={() => checkout()}>Finalizar Compra</Button>
       </Box>
     </Drawer>
   );
