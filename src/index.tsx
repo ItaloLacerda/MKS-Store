@@ -7,13 +7,13 @@ import reportWebVitals from './reportWebVitals';
 
 import { App } from './App';
 import { LightTheme } from './shared/themes';
-import { store } from './shared/redux/store';
+import { setupStore } from './shared/redux/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Provider store={store}>
+  <Provider store={setupStore}>
     <BrowserRouter>
       <ThemeProvider theme={LightTheme}>
         <React.StrictMode>
